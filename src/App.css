@@ -63,7 +63,7 @@ h1{
   padding-left : 2rem;
   gap : 12px;
   display : grid;
-  grid-template-columns: repeat(5,1fr);
+  grid-template-columns: repeat(3,1fr);
 }
 
 .component-style {
