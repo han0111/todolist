@@ -9,15 +9,16 @@ function App() {
   const [title, setTitle] = useState("");
   const [comment, setComment] = useState("");
 
-  //onChange변수할당
+  //onChange변수할당, 입력값 추가
   const titleChangeHandler = (event) => {
     setTitle(event.target.value)}
   const commentChangeHandler = (event) => {
     setComment(event.target.value);
   }
   
-  //추가하기 버튼 변수할당 및 카드추가
-  const clickAddButtonHandler = () => {
+  //추가하기 버튼 변수할당 및 form태그 Enter입력시 새로고침방지,카드추가
+  const clickAddButtonHandler = (event) => {
+    event.preventDefault();
     const newPlan={
       id,
       title,
@@ -71,7 +72,7 @@ function App() {
         <div>My Todo List</div>
         <div>React</div>
       </div>
-      {/* <form > */}
+      <form >
       <div className = "add-form">
         <div className="input-group">
         <label className="form-label">제목</label>
@@ -88,7 +89,7 @@ function App() {
 
         <button className="add-button" onClick={clickAddButtonHandler}>추가하기</button>
       </div>
-      {/* </form> */}
+      </form>
       <h1>working..🐢</h1>
       <div className="app-style">
         {
