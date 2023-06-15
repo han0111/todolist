@@ -4,9 +4,7 @@ import "./App.css"
 function App() {
   const id = Math.random();
   const [plans, setPlans] = useState(  
-    [{id:id, title: "리액트공부하기", comment: "리액트 기초를 공부해봅시다"},
-    // {id:2, title: "제목2", comment: "내용2"},
-  ]);
+    [{id:id, title: "리액트공부하기", comment: "리액트 기초를 공부해봅시다"},]);
 
   const [title, setTitle] = useState("");
   const [comment, setComment] = useState("");
@@ -27,6 +25,9 @@ function App() {
     }
     //배열 불변성 유지
     setPlans([...plans,newPlan]);
+    //추가하기버튼 누른 후 내용삭제
+    setTitle("");
+    setComment("");
   }
 
   //삭제 버튼 변수할당 및 카드삭제
@@ -46,10 +47,8 @@ function App() {
 
   //Done 컨테이너 만들기
   const [donePlans, setDonePlans] = useState(  
-    [{id:1, title: "리액트공부하기 완료", comment: "리액트 기초를 공부해봅시다 완료"},
-  ]);
-  // const [donetitle, setDoneTitle] = useState("");
-  // const [doneComment, setDoneComment] = useState("");
+    [{id:1, title: "리액트공부하기 완료", comment: "리액트 기초를 공부해봅시다 완료"},]);
+
 
   //Done 컨테이너 삭제 버튼 변수할당 및 카드삭제
   const clickDoneRemoveButtonHandler = (id) => {
