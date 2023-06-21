@@ -1,19 +1,19 @@
-.layout{
+/* .layout{
   margin: 0 auto;
   max-width: 1200px;
   min-width: 800px;
-}
+} */
 
-.container {
+/* .container {
   align-items: center;
   border: 1px solid #ddd;
   display: flex;
   height: 50px;
   justify-content: space-between;
   padding: 0 20px;
-}
+} */
 
-.add-form {
+/* .add-form {
   background-color: #eee;
   border-radius: 12px;
   justify-content: space-between;
@@ -23,30 +23,30 @@
   align-items: center;
   display: flex;
   gap: 20px;
-}
+} */
 
-.input-group {
+/* .input-group {
   align-items: center;
   display: flex;
   gap: 20px;
-}
+} */
 
-.input {
+/* .input {
   border: none;
   border-radius: 12px;
   height: 40px;
   padding: 0 12px;
   width: 240px;
-}
+} */
 
-.form-label {
+/* .form-label {
   font-size: 16px;
   font-weight: 700;
-}
-.add-button:hover{
+} */
+/* .add-button:hover{
   transform: scale(1.1);
-}
-.add-button{    
+} */
+/* .add-button{    
 background-color: teal;
 border: none;
 border-radius: 10px;
@@ -55,48 +55,46 @@ font-weight: 700;
 height: 40px;
 width: 140px;
 cursor: pointer;
-}
+} */
 
-h1{
+/* h1{
   margin-left: 30px;
-}
-.app-style {
-  /* padding-left : 30px; */
+} */
+/* .app-style {
   padding-left : 2rem;
   gap : 12px;
   display : grid;
   grid-template-columns: repeat(3,1fr);
-}
+} */
 
-.component-style {
+/* .component-style {
   width: 270px;
   height: 150px;
   border: 4px solid teal;
   border-radius: 12px;
-  padding: 12px 24px 24px 24px;
+  padding: 12px 24px 24px 24px; */
 
   /* display: flex;
   align-items: center;
   justify-content: center; */
-}
-.btn {
+/* } */
+/* .btn {
   display: flex;
   flex-direction: row;
-}
-.red-btn:hover {
+} */
+/* .red-btn:hover {
   transform: scale(1.1);
 }
 .red-btn {
   background-color: transparent;
   border: 2px solid red;
   border-radius: 10px;
-  /* padding: 7px 20px 7px 20px;  */
   width: 50%;
   height: 40px;
   margin : 20px 5px auto 5px;
   cursor: pointer;
-}
-.green-btn:hover {
+} */
+/* .green-btn:hover {
   transform: scale(1.1);
 }
 .green-btn {
@@ -109,4 +107,4 @@ h1{
   padding: 7px 32px 7px 32px;
   margin : 20px 5px auto 5px;
   cursor: pointer;
-}
+} */
