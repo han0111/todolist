@@ -95,13 +95,6 @@ const ColorBtn = styled.button`
 `
 
 
-/**
- * 1. state 합치기 -> 하나 변경하면 나머지도 변경해야 함 & state 두 개라 함수도 2개 만들어야 함
- * 2. clickCompleteButtonHandler 와 clickDeleteButtonHandler 두 개가 거의 똑같아서 하나로 만들면 됨
- * 3. 이름을 cancel로 변경하는 것이 더 적절할 듯?
- * 4. 컴포넌트 분리
- */
-
 function App() {
   const id = Math.random();
 
@@ -267,19 +260,6 @@ function App() {
                     {getBtnName(color)}
                   </ColorBtn>
               })}  
-                <ColorBtn
-                  onClick={() => removeButtonHandler(item.id)}
-                  bordercolor = "red"
-                >
-                  삭제하기
-                </ColorBtn>
-                <ColorBtn
-                  onClick={() => completeButtonHandler(item.id)}
-                  bordercolor = "green"
-                >
-                  {/* 완료 */}
-                  {item.isDone ? "취소" : "완료"}
-                </ColorBtn>
               </Btn>
             </ComponentStyle>
 
