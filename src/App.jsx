@@ -81,32 +81,20 @@ const Btn = styled.div`
   flex-direction: row;
 `
 
-const RedBtn = styled.button`
-    background-color: transparent;
-  border: 2px solid red;
-  border-radius: 10px;
-  width: 50%;
-  height: 40px;
-  margin : 20px 5px auto 5px;
-  cursor: pointer;
-  &:hover {
-    transform: scale(1.1);
-  }
-`
-const GreenBtn = styled.button`
+const ColorBtn = styled.button`
   background-color: transparent;
-  border: 2px solid green;
+  border: 2px solid ${(props) => props.bordercolor};
   border-radius: 10px;
   width: 50%;
   height: 40px;
 
-  padding: 7px 32px 7px 32px;
   margin : 20px 5px auto 5px;
   cursor: pointer;
   &:hover {
-    transform: scale(1.1);
-  }
+    transform: scale(1.1);}
 `
+
+
 /**
  * 1. state 합치기 -> 하나 변경하면 나머지도 변경해야 함 & state 두 개라 함수도 2개 만들어야 함
  * 2. clickCompleteButtonHandler 와 clickDeleteButtonHandler 두 개가 거의 똑같아서 하나로 만들면 됨
@@ -121,14 +109,14 @@ function App() {
   const [todos, setTodos] = useState([
     {
       id: Math.random(),
-      title: "하하핳",
-      comment: "호호홓",
+      title: "리액트 공부하기",
+      comment: "리액트 기초를 공부해봅시다.",
       isDone: false,
     },
     {
       id: Math.random(),
-      title: "하하하 완료",
-      comment: "후후훟 완료",
+      title: "공부 완료",
+      comment: "공부 완료하였습니다.",
       isDone: true,
     },
   ]);
@@ -203,19 +191,24 @@ function App() {
             추가하기
           </AddButton>
         </AddForm>
-      <H1>working..🐢</H1>
-      
+
+      <H1>working..🐢</H1>      
       <AppStyle>
         {todos
           .filter((todo) => !todo.isDone)
           .map((item) => {
-            return (
-              // <Card
-              //   item={item}
-              //   clickRemoveButtonHandler={removeButtonHandler}
-              //   completeButtonHandler={completeButtonHandler}
-              // />
-              
+            //버튼의 색
+            const borderColorList = ['red', 'green'] 
+            //버튼의 색을 넣으면, 버튼내용을 반환
+            const getBtnName = (color) => {
+              switch(color) {
+                case 'red':
+                return "삭제하기";
+                case 'green':
+                  return `${item.isDone ? "취소" : "완료"}`;
+              }
+            }
+            return (              
               <ComponentStyle 
               key={item.id}
               item={item}
@@ -223,21 +216,17 @@ function App() {
               completeButtonHandler={completeButtonHandler}>
               <h2>{item.title}</h2>
               <div>{item.comment}</div>
-              <Btn>             
-               <RedBtn
-                  onClick={() => removeButtonHandler(item.id)}
-                >
-                  삭제하기
-                </RedBtn>
-                <GreenBtn
-                  onClick={() => completeButtonHandler(item.id)}
-                >
-                  {/* 완료 */}
-                  {item.isDone ? "취소" : "완료"}
-                </GreenBtn>
+              <Btn>          
+              {borderColorList.map((color)=>{
+                return <ColorBtn
+                  onClick={() => color === "red"?removeButtonHandler(item.id):completeButtonHandler(item.id)}                  
+                  bordercolor = {color}
+                  >
+                    {getBtnName(color)}
+                  </ColorBtn>
+              })}  
               </Btn>
               </ComponentStyle>
-
 
             );
           })}
@@ -249,13 +238,19 @@ function App() {
         {todos
           .filter((todo) => !!todo.isDone)
           .map((item) => {
+            //버튼의 색
+            const borderColorList = ['red', 'green'] 
+            //버튼의 색을 넣으면, 버튼내용을 반환
+            const getBtnName = (color) => {
+              switch(color) {
+                case 'red':
+                return "삭제하기";
+                case 'green':
+                  return `${item.isDone ? "취소" : "완료"}`;
+              }
+            }
+            
             return (
-              // <Card
-              //   item={item}
-              //   clickRemoveButtonHandler={removeButtonHandler}
-              //   completeButtonHandler={completeButtonHandler}
-              // />
-
               <ComponentStyle  
                 key={item.id}
                 item={item}
@@ -264,17 +259,27 @@ function App() {
               <h2>{item.title}</h2>
               <div>{item.comment}</div>
               <Btn>
-                <RedBtn
+              {borderColorList.map((color)=>{
+                return <ColorBtn
+                  onClick={() => color === "red"?removeButtonHandler(item.id):completeButtonHandler(item.id)}                  
+                  bordercolor = {color}
+                  >
+                    {getBtnName(color)}
+                  </ColorBtn>
+              })}  
+                <ColorBtn
                   onClick={() => removeButtonHandler(item.id)}
+                  bordercolor = "red"
                 >
                   삭제하기
-                </RedBtn>
-                <GreenBtn
+                </ColorBtn>
+                <ColorBtn
                   onClick={() => completeButtonHandler(item.id)}
+                  bordercolor = "green"
                 >
                   {/* 완료 */}
                   {item.isDone ? "취소" : "완료"}
-                </GreenBtn>
+                </ColorBtn>
               </Btn>
             </ComponentStyle>
 
@@ -282,7 +287,6 @@ function App() {
             );
           })}
       </AppStyle>
-    {/* </div> */}
     </StBox>
   );
 }
